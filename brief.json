@@ -1,0 +1,312 @@
+{
+  "run_id": "run-1779495708244",
+  "job_index": 6,
+  "params": {
+    "owner_user_id": "user-1774822953462",
+    "owner_username": "admin",
+    "owner_display_name": "Administrator",
+    "count": 10,
+    "archetype": "tool",
+    "market": "Argentina - herramientas para juegos móviles, seguridad de cuenta y juego responsable",
+    "language": "es",
+    "country": "AR",
+    "brief": "Tracker de historial Red Green Violet Number.",
+    "notes": "Crear sitios en español rioplatense para Argentina. Deben ser herramientas web reales, con formulario funcional, resultado visible, copy claro y disclaimer de juego responsable. No prometer ganancias, no incentivar apuestas, no usar claims de casino. Localizar pagos/KYC a CBU, CVU, alias, DNI, CUIT/CUIL, billetera virtual y transferencia bancaria.\nTracker manual de resultados rojo, verde, violeta y número.\nCampos: agregar color y número opcional. Resultado: tabla de historial, porcentajes de frecuencia y últimos 10 resultados. Aclarar que no predice resultados.",
+    "import_notes": "",
+    "growth_job_id": "",
+    "growth_slug": "",
+    "growth_kind": "",
+    "external_site_request_id": "",
+    "external_client_ref": "",
+    "external_source_label": "",
+    "dashboard_mode": "builder",
+    "network_site_format": "forum",
+    "network_primary_topic": "",
+    "network_primary_geo": "",
+    "network_domain_pool": "forum-de-jeu.shop",
+    "network_hosting_pool": "4vps:netoper | server_id=447345 | ip=5.253.59.18 | ssh_user=root | ssh_port=22",
+    "network_dns_strategy": "auto_pool_assign",
+    "network_domain_flow": "manual",
+    "network_content_strategy": "",
+    "network_model_concept": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_seo": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_build": "google/gemini-2.5-flash",
+    "network_model_qa": "anthropic/claude-haiku-4.5",
+    "network_model_growth": "google/gemini-2.5-flash-lite:nitro",
+    "network_blueprint_id": "",
+    "mode": "production",
+    "run_kind": "generated_batch",
+    "publish_target": "render",
+    "requested_publish_target": "render",
+    "provider_space_id": "provider-space",
+    "provider_space_name": "Provider space",
+    "allow_url_fallback": false,
+    "railway_project_id_override": "",
+    "railway_environment_id_override": "",
+    "railway_service_id_override": "",
+    "railway_service_name_override": "",
+    "github_repo_private": true,
+    "stage_models": {
+      "ideation": "google/gemini-2.5-flash-lite:nitro",
+      "spec": "google/gemini-2.5-flash",
+      "copy": "google/gemini-2.5-flash-lite:nitro",
+      "qa": "anthropic/claude-haiku-4.5",
+      "escalation": "anthropic/claude-sonnet-4.6"
+    },
+    "archetype_display": "mixed batch",
+    "archetype_mix": [
+      "calculator",
+      "tool",
+      "generator"
+    ],
+    "site_idea_title": "Historial de resultados por color",
+    "site_idea_summary": "Tracker manual de resultados rojo, verde, violeta y número.",
+    "forced_slug": "color-result-history-tracker"
+  },
+  "site_spec": {
+    "slug": "color-result-history-tracker",
+    "theme": {
+      "name": "Candy Bento",
+      "slug": "candy-bento",
+      "eyebrow": "Bright Utility",
+      "family": "candy-bento",
+      "moods": [
+        "bright",
+        "cheerful",
+        "modular",
+        "friendly"
+      ],
+      "archetypes": [
+        "generator",
+        "tool"
+      ],
+      "niches": [
+        "education",
+        "family tools",
+        "simple utility",
+        "creators",
+        "social tools"
+      ],
+      "keywords": [
+        "candy",
+        "bright",
+        "bento",
+        "friendly",
+        "fun"
+      ],
+      "token_index": [
+        "bento",
+        "bright",
+        "candy",
+        "cheerful",
+        "creators",
+        "education",
+        "family",
+        "friendly",
+        "fun",
+        "generator",
+        "modular",
+        "simple",
+        "social",
+        "tool",
+        "tools",
+        "utility"
+      ],
+      "font_embed": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap",
+      "display_font": "\"Outfit\", sans-serif",
+      "body_font": "\"IBM Plex Sans\", sans-serif",
+      "layout": "showcase",
+      "card_style": "glass",
+      "button_style": "gradient",
+      "decor_style": "orbs",
+      "hero_template": "0.94fr 1.06fr",
+      "seo_template": "1.18fr 0.82fr",
+      "feature_columns": 2,
+      "faq_columns": 3,
+      "hero_min_height": "78vh",
+      "panel_radius": "34px",
+      "card_radius": "26px",
+      "chip_radius": "999px",
+      "button_radius": "18px",
+      "outline_width": "1px",
+      "backdrop_blur": "22px",
+      "palette": {
+        "bg": "linear-gradient(145deg, #fff1f2 0%, #fde68a 42%, #bfdbfe 100%)",
+        "surface": "rgba(255,255,255,0.88)",
+        "surface_border": "rgba(236,72,153,0.14)",
+        "text": "#3b0764",
+        "muted": "#6b21a8",
+        "accent": "#ec4899",
+        "accent_alt": "#2563eb",
+        "hero_glow": "rgba(236, 72, 153, 0.16)",
+        "button_text": "#fff7fb",
+        "panel_alt": "rgba(255,255,255,0.68)",
+        "shadow": "0 24px 68px rgba(236, 72, 153, 0.12)",
+        "input_fill": "rgba(255,255,255,0.48)"
+      }
+    },
+    "structure": {
+      "name": "Tool First Rail",
+      "slug": "tool-first-rail",
+      "hero_variant": "tool-first",
+      "proof_variant": "checklist",
+      "section_order": [
+        "proof",
+        "features",
+        "seo",
+        "faq"
+      ],
+      "feature_columns": 2,
+      "faq_columns": 2,
+      "family": "interaction-forward",
+      "moods": [
+        "direct",
+        "practical",
+        "fast"
+      ],
+      "archetypes": [
+        "tool",
+        "calculator",
+        "generator"
+      ],
+      "niches": [
+        "qr",
+        "validators",
+        "quick utilities",
+        "lead tools"
+      ],
+      "keywords": [
+        "interaction",
+        "fast",
+        "widget",
+        "action"
+      ],
+      "token_index": [
+        "action",
+        "calculator",
+        "checklist",
+        "direct",
+        "faq",
+        "fast",
+        "features",
+        "first",
+        "forward",
+        "generator",
+        "interaction",
+        "lead",
+        "practical",
+        "proof",
+        "quick",
+        "rail",
+        "seo",
+        "tool",
+        "tools",
+        "utilities",
+        "validators",
+        "widget"
+      ]
+    },
+    "render_direction": "worksheet-flow",
+    "render_direction_name": "Worksheet Flow",
+    "page_blueprint": "worksheet-cascade",
+    "page_blueprint_name": "Worksheet Cascade",
+    "title": "Historial de Resultados por Color y Número",
+    "tagline": "Ingresar Nuevo Resultado",
+    "description": "Registrá y analizá el historial de resultados de Rojo, Verde, Violeta y números. Herramienta manual para juego responsable en Argentina.",
+    "feature_prefix": "Módulo",
+    "action": "Generate palette",
+    "cta_primary": "Agregar Resultado",
+    "cta_secondary": "Leer la FAQ",
+    "inputs": [
+      {
+        "id": "base_color",
+        "label": "Base color",
+        "type": "text",
+        "placeholder": "#ff5db1",
+        "weight": 1.0
+      },
+      {
+        "id": "palette_style",
+        "label": "Palette direction",
+        "type": "select",
+        "options": [
+          {
+            "id": "chrome-pop",
+            "label": "Chrome Pop",
+            "multiplier": 1
+          },
+          {
+            "id": "digital-candy",
+            "label": "Digital Candy",
+            "multiplier": 1
+          },
+          {
+            "id": "acid-pastel",
+            "label": "Acid Pastel",
+            "multiplier": 1
+          },
+          {
+            "id": "night-neon",
+            "label": "Night Neon",
+            "multiplier": 1
+          }
+        ],
+        "weight": 1.0
+      },
+      {
+        "id": "vibrancy",
+        "label": "Visual intensity",
+        "type": "number",
+        "placeholder": "8",
+        "weight": 0.5
+      }
+    ],
+    "hero_metrics": [
+      {
+        "value": "Worksheet Flow",
+        "label": "Cadencia"
+      },
+      {
+        "value": "3",
+        "label": "Entradas"
+      },
+      {
+        "value": "Generated palette",
+        "label": "Salida"
+      }
+    ],
+    "trust_labels": [
+      "Worksheet Flow",
+      "Agregar Resultado",
+      "Generated palette",
+      "Utilidad inmediata",
+      "Estructura SEO clara"
+    ],
+    "result_label": "Generated palette",
+    "result_unit": "",
+    "runtime_mode": "palette_generator",
+    "page_variant": "classic",
+    "faq_topic": "Historial de resultados por color",
+    "faq_entries": [
+      {
+        "question": "¿Por qué usar esta herramienta para Historial de resultados por color?",
+        "answer": "Ayuda a definir la necesidad rápidamente y a guiar hacia una siguiente acción clara en Argentina - herramientas para juegos móviles, seguridad de cuenta y juego responsable."
+      },
+      {
+        "question": "¿El resultado es inmediato?",
+        "answer": "Sí. La interfaz está pensada para devolver una respuesta rápida y clara desde la primera interacción."
+      },
+      {
+        "question": "¿La página está preparada para SEO?",
+        "answer": "Sí. La estructura combina utilidad, claridad editorial y señales de confianza sin recargar la experiencia."
+      }
+    ],
+    "seo_paragraphs": [
+      "Esta página está diseñada para captar una intención fuerte sobre Historial de resultados por color y convertirla en una acción medible en Argentina - herramientas para juegos móviles, seguridad de cuenta y juego responsable.",
+      "La estructura hero-first mejora la claridad, reduce fricción y funciona bien tanto en móvil como en escritorio.",
+      "La base se mantiene ligera para facilitar pruebas, QA continua y variaciones SEO repetibles."
+    ],
+    "document_html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Historial de Resultados por Color y Número | Ingresar Nuevo Resultado</title>\n    <meta name=\"description\" content=\"Registrá y analizá el historial de resultados de Rojo, Verde, Violeta y números. Herramienta manual para juego responsable en Argentina.\">\n    <style>\n        :root {\n            --primary-color: #FF69B4; /* Hot Pink */\n            --secondary-color: #8A2BE2; /* Blue Violet */\n            --accent-color: #32CD32; /* Lime Green */\n            --background-light: #FFF0F5; /* Lavender Blush */\n            --background-dark: #F8F8FF; /* Ghost White */\n            --text-color: #333333;\n            --border-color: #FFC0CB; /* Pink */\n            --red-color: #FF0000;\n            --green-color: #008000;\n            --violet-color: #EE82EE;\n        }\n\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';\n            margin: 0;\n            padding: 0;\n            background-color: var(--background-light);\n            color: var(--text-color);\n            line-height: 1.6;\n            display: flex;\n            flex-direction: column;\n            min-height: 100vh;\n        }\n\n        header {\n            background-color: var(--primary-color);\n            color: white;\n            padding: 2.5rem 1.5rem;\n            text-align: center;\n            box-shadow: 0 4px 8px rgba(0,0,0,0.1);\n        }\n\n        header h1 {\n            font-size: 3.2rem;\n            margin: 0 0 0.8rem 0;\n            letter-spacing: -0.05em;\n            line-height: 1.1;\n        }\n\n        header p {\n            font-size: 1.3rem;\n            opacity: 0.9;\n            max-width: 800px;\n            margin: 0 auto;\n        }\n\n        .container {\n            max-width: 1000px;\n            margin: 2rem auto;\n            padding: 0 1.5rem;\n            flex-grow: 1;\n        }\n\n        section {\n            background-color: white;\n            padding: 2rem;\n            border-radius: 12px;\n            box-shadow: 0 6px 12px rgba(0,0,0,0.08);\n            margin-bottom: 2rem;\n            border: 1px solid var(--border-color);\n        }\n\n        h2 {\n            color: var(--secondary-color);\n            font-size: 2rem;\n            margin-top: 0;\n            border-bottom: 2px solid var(--accent-color);\n            padding-bottom: 0.5rem;\n            margin-bottom: 1.5rem;\n        }\n\n        .form-grid {\n            display: grid;\n            grid-template-columns: 1fr;\n            gap: 1.5rem;\n        }\n\n        .form-group label {\n            display: block;\n            margin-bottom: 0.5rem;\n            font-weight: bold;\n            color: var(--text-color);\n        }\n\n        .form-group select,\n        .form-group input[type=\"number\"] {\n            width: 100%;\n            padding: 0.8rem;\n            border: 1px solid var(--border-color);\n            border-radius: 8px;\n            font-size: 1rem;\n            box-sizing: border-box;\n            transition: border-color 0.3s ease;\n        }\n\n        .form-group select:focus,\n        .form-group input[type=\"number\"]:focus {\n            border-color: var(--primary-color);\n            outline: none;\n            box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);\n        }\n\n        #tool-submit {\n            background-color: var(--accent-color);\n            color: white;\n            padding: 1rem 1.5rem;\n            border: none;\n            border-radius: 8px;\n            font-size: 1.1rem;\n            cursor: pointer;\n            transition: background-color 0.3s ease, transform 0.2s ease;\n            width: 100%;\n            font-weight: bold;\n        }\n\n        #tool-submit:hover {\n            background-color: #28a745; /* Darker green */\n            transform: translateY(-2px);\n        }\n\n        #tool-result {\n            margin-top: 2rem;\n            background-color: var(--background-dark);\n            padding: 1.8rem;\n            border-radius: 12px;\n            border: 1px dashed var(--secondary-color);\n            min-height: 100px;\n        }\n\n        #tool-result h3 {\n            color: var(--secondary-color);\n            margin-top: 0;\n            font-size: 1.6rem;\n        }\n\n        #history-table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-top: 1.5rem;\n        }\n\n        #history-table th, #history-table td {\n            border: 1px solid var(--border-color);\n            padding: 0.8rem;\n            text-align: left;\n        }\n\n        #history-table th {\n            background-color: var(--primary-color);\n            color: white;\n            font-weight: bold;\n        }\n\n        #history-table td.color-cell {\n            font-weight: bold;\n            color: white;\n            text-align: center;\n        }\n        .color-Rojo { background-color: var(--red-color); }\n        .color-Verde { background-color: var(--green-color); }\n        .color-Violeta { background-color: var(--violet-color); }\n\n        .disclaimer {\n            background-color: #fff9e6; /* Light yellow */\n            border-left: 5px solid #ffcc00;\n            padding: 1rem;\n            margin-top: 1.5rem;\n            border-radius: 8px;\n            font-size: 0.9rem;\n            color: #666;\n        }\n\n        .disclaimer strong {\n            color: #cc9900;\n        }\n\n        #frequencies-chart, #last-results {\n            margin-top: 1.5rem;\n            padding: 1rem;\n            background-color: #fcfcfc;\n            border-radius: 8px;\n            border: 1px solid var(--border-color);\n        }\n\n        #last-results ul {\n            list-style: none;\n            padding: 0;\n            display: flex;\n            flex-wrap: wrap;\n            gap: 10px;\n            margin-top: 1rem;\n        }\n\n        #last-results ul li {\n            padding: 0.5rem 1rem;\n            border-radius: 20px;\n            font-weight: bold;\n            color: white;\n            min-width: 60px;\n            text-align: center;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n\n        .cta-section {\n            text-align: center;\n            padding: 3rem 0;\n            background-color: var(--primary-color);\n            color: white;\n            border-radius: 12px;\n            margin-bottom: 2rem;\n            box-shadow: 0 6px 12px rgba(0,0,0,0.08);\n        }\n\n        .cta-section h2 {\n            color: white;\n            border-bottom: none;\n            font-size: 2.5rem;\n            margin-bottom: 1rem;\n        }\n\n        .cta-section p {\n            font-size: 1.2rem;\n            max-width: 700px;\n            margin: 0 auto 2rem auto;\n            opacity: 0.9;\n        }\n\n        .cta-button {\n            display: inline-block;\n            background-color: var(--secondary-color);\n            color: white;\n            padding: 0.9rem 2rem;\n            border-radius: 8px;\n            text-decoration: none;\n            font-weight: bold;\n            font-size: 1.1rem;\n            transition: background-color 0.3s ease, transform 0.2s ease;\n        }\n\n        .cta-button:hover {\n            background-color: #6A1B9A; /* Darker secondary */\n            transform: translateY(-2px);\n        }\n\n        footer {\n            background-color: var(--text-color);\n            color: white;\n            padding: 2.5rem 1.5rem;\n            text-align: center;\n            margin-top: auto;\n            font-size: 0.9rem;\n        }\n\n        footer a {\n            color: var(--primary-color);\n            text-decoration: none;\n            margin: 0 0.5rem;\n        }\n\n        footer a:hover {\n            text-decoration: underline;\n        }\n\n        .seo-section {\n            background-color: var(--background-dark);\n            padding: 2rem;\n            border-radius: 12px;\n            margin-bottom: 2rem;\n            color: #555;\n            font-size: 0.9rem;\n            line-height: 1.8;\n            border: 1px solid var(--border-color);\n        }\n\n        .seo-section h3 {\n            color: var(--secondary-color);\n            font-size: 1.5rem;\n            margin-top: 0;\n            margin-bottom: 1rem;\n        }\n\n        .seo-section ul {\n            list-style: disc;\n            margin-left: 20px;\n            padding-left: 0;\n        }\n\n        .seo-section li {\n            margin-bottom: 0.5rem;\n        }\n\n        @media (min-width: 768px) {\n            .form-grid {\n                grid-template-columns: 1fr 1fr auto;\n                align-items: end;\n            }\n            #tool-submit {\n                width: auto;\n            }\n        }\n    </style>\n    <meta name=\"robots\" content=\"index, follow\">\n    <link rel=\"canonical\" href=\"https://color-result-history-tracker.onrender.com\">\n    <meta property=\"og:title\" content=\"Historial de Resultados por Color y Número\">\n    <meta property=\"og:description\" content=\"Registrá y analizá el historial de resultados de Rojo, Verde, Violeta y números. Herramienta manual para juego responsable en Argentina.\">\n    <meta property=\"og:url\" content=\"https://color-result-history-tracker.onrender.com\">\n    <meta property=\"og:type\" content=\"website\">\n    <script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"Historial de Resultados por Color y Número\", \"description\": \"Registrá y analizá el historial de resultados de Rojo, Verde, Violeta y números. Herramienta manual para juego responsable en Argentina.\", \"url\": \"https://color-result-history-tracker.onrender.com\", \"applicationCategory\": \"UtilityApplication\", \"operatingSystem\": \"Web Browser\"}</script>\n</head>\n<body data-site-slug=\"color-result-history-tracker\" data-runtime-mode=\"palette_generator\">\n    <header>\n        <h1>Tracker Manual de Resultados por Color</h1>\n        <p>Registrá el historial de tus resultados (Rojo, Verde, Violeta y números) para un análisis simple y juego responsable. ¡Sin predicciones, solo datos!</p>\n    </header>\n\n    <div class=\"container\">\n        <section>\n            <h2>Ingresar Nuevo Resultado</h2>\n            <form id=\"tool-form\">\n                <div class=\"form-grid\">\n                    <div class=\"form-group\">\n                        <label for=\"color-input\">Color:</label>\n                        <select id=\"color-input\" required>\n                            <option value=\"\">Seleccione un color</option>\n                            <option value=\"Rojo\">Rojo</option>\n                            <option value=\"Verde\">Verde</option>\n                            <option value=\"Violeta\">Violeta</option>\n                        </select>\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"number-input\">Número (opcional):</label>\n                        <input type=\"number\" id=\"number-input\" min=\"0\" max=\"9999\" placeholder=\"Ej: 123\">\n                    </div>\n                    <button type=\"submit\" id=\"tool-submit\">Agregar Resultado</button>\n                </div>\n            </form>\n\n            <div id=\"tool-result\">\n                <h3 id=\"result-headline\">Tu Historial de Resultados</h3>\n                <div class=\"disclaimer\">\n                    <strong>Importante:</strong> Esta herramienta es para llevar un registro personal. No predice resultados futuros ni garantiza ganancias. El juego debe ser siempre una actividad recreativa y responsable.\n                </div>\n                <table id=\"history-table\">\n                    <thead>\n                        <tr>\n                            <th>#</th>\n                            <th>Color</th>\n                            <th>Número</th>\n                            <th>Hora de Registro</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <!-- Results will be inserted here -->\n                    </tbody>\n                </table>\n                <div id=\"frequencies-chart\">\n                    <h4>Frecuencia de Colores</h4>\n                    <p id=\"frequency-Rojo\">Rojo: 0%</p>\n                    <p id=\"frequency-Verde\">Verde: 0%</p>\n                    <p id=\"frequency-Violeta\">Violeta: 0%</p>\n                </div>\n                <div id=\"last-results\">\n                    <h4>Últimos 10 Resultados</h4>\n                    <ul id=\"last-results-list\">\n                        <!-- Last 10 results will be inserted here -->\n                    </ul>\n                </div>\n            </div>\n        </section>\n\n        <section class=\"cta-section\">\n            <h2>Gestión Responsable</h2>\n            <p>Monitorear tus patrones puede ayudarte a mantener un juego consciente y saludable. Esta herramienta es un paso hacia un entretenimiento más controlado.</p>\n            <a href=\"#\" class=\"cta-button\" data-affiliate-slot=\"responsible-gaming-info\">Más sobre Juego Responsable</a>\n        </section>\n\n        <section class=\"seo-section\">\n            <h3>¿Buscando herramientas para gestionar tu juego móvil en Argentina?</h3>\n            <p>En Argentina, la creciente popularidad de los juegos móviles requiere de herramientas que promuevan la seguridad y el juego responsable. Nuestro tracker manual de resultados es ideal para quienes buscan:</p>\n            <ul>\n                <li><strong>Controlar su historial de juego:</strong> Registrá de forma sencilla los resultados de colores (Rojo, Verde, Violeta) y números en tus sesiones de juego.</li>\n                <li><strong>Analizar patrones:</strong> Aunque no predice, ver la frecuencia de tus resultados puede ser un indicador útil para tu autoanálisis.</li>\n                <li><strong>Fomentar el juego responsable:</strong> Esta utilidad te ayuda a mantener un registro objetivo de tus actividades, promoviendo una experiencia de juego más consciente y menos impulsiva.</li>\n                <li><strong>Seguridad de cuenta:</strong> Entender tus hábitos es parte fundamental de mantener un entorno de juego seguro y prevenir comportamientos de riesgo.</li>\n            </ul>\n            <p>Nuestra plataforma está diseñada para usuarios en Argentina, ofreciendo una solución práctica y localizada para el seguimiento manual de datos, sin promesas de éxito ni incentivos al juego. Priorizamos tu bienestar y la gestión inteligente de tus tiempos de ocio digital.</p>\n            <p>Considerá siempre límites personales y buscá apoyo si sentís que el juego deja de ser una diversión.</p>\n        </section>\n    </div>\n\n    <footer>\n        <p>&copy; 2024 Herramientas para Juego Responsable AR. Todos los derechos reservados.</p>\n        <p>Contacto: <a href=\"mailto:info@example.com\">info@example.com</a></p>\n        <p>Aviso Legal | Política de Privacidad</p>\n    </footer>\n\n    <script>\n        const toolForm = document.getElementById('tool-form');\n        const colorInput = document.getElementById('color-input');\n        const numberInput = document.getElementById('number-input');\n        const toolResult = document.getElementById('tool-result');\n        const historyTableBody = document.querySelector('#history-table tbody');\n        const frequencyRojo = document.getElementById('frequency-Rojo');\n        const frequencyVerde = document.getElementById('frequency-Verde');\n        const frequencyVioleta = document.getElementById('frequency-Violeta');\n        const lastResultsList = document.getElementById('last-results-list');\n\n        let resultsHistory = [];\n\n        toolForm.addEventListener('submit', function(event) {\n            event.preventDefault();\n            addResult();\n        });\n\n        function addResult() {\n            const color = colorInput.value;\n            const number = numberInput.value ? parseInt(numberInput.value, 10) : null;\n            const timestamp = new Date();\n\n            if (!color) {\n                alert('Por favor, seleccione un color.');\n                return;\n            }\n\n            resultsHistory.push({ color, number, timestamp });\n            updateResultsDisplay();\n\n            // Clear form\n            colorInput.value = '';\n            numberInput.value = '';\n        }\n\n        function updateResultsDisplay() {\n            // Update history table\n            historyTableBody.innerHTML = '';\n            resultsHistory.slice().reverse().forEach((result, index) => { // Reverse to show latest first\n                const row = historyTableBody.insertRow();\n                const displayIndex = resultsHistory.length - index; // Correct index for display\n                row.insertCell().textContent = displayIndex;\n                const colorCell = row.insertCell();\n                colorCell.textContent = result.color;\n                colorCell.classList.add('color-cell', `color-${result.color}`);\n                row.insertCell().textContent = result.number !== null ? result.number : '-';\n                row.insertCell().textContent = result.timestamp.toLocaleString('es-AR');\n            });\n\n            // Update frequencies\n            const total = resultsHistory.length;\n            if (total === 0) {\n                frequencyRojo.textContent = 'Rojo: 0%';\n                frequencyVerde.textContent = 'Verde: 0%';\n                frequencyVioleta.textContent = 'Violeta: 0%';\n            } else {\n                const countRojo = resultsHistory.filter(r => r.color === 'Rojo').length;\n                const countVerde = resultsHistory.filter(r => r.color === 'Verde').length;\n                const countVioleta = resultsHistory.filter(r => r.color === 'Violeta').length;\n\n                frequencyRojo.textContent = `Rojo: ${((countRojo / total) * 100).toFixed(1)}%`;\n                frequencyVerde.textContent = `Verde: ${((countVerde / total) * 100).toFixed(1)}%`;\n                frequencyVioleta.textContent = `Violeta: ${((countVioleta / total) * 100).toFixed(1)}%`;\n            }\n\n            // Update last 10 results\n            lastResultsList.innerHTML = '';\n            resultsHistory.slice(-10).reverse().forEach(result => {\n                const li = document.createElement('li');\n                li.textContent = `${result.color}${result.number !== null ? ' (' + result.number + ')' : ''}`;\n                li.classList.add(`color-${result.color}`);\n                lastResultsList.appendChild(li);\n            });\n        }\n    </script>\n<div id=\"qa-smoke-result\" hidden></div>\n<script id=\"farmbuilder-affiliate-helper\">\n(function () {\n  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};\n  document.addEventListener(\"click\", function (event) {\n    const target = event.target.closest(\"[data-affiliate-slot]\");\n    if (!target) return;\n    const slot = target.getAttribute(\"data-affiliate-slot\");\n    const href = window.__UTILITY_AFFILIATE_MAP[slot];\n    if (!href) return;\n    if (target.tagName && target.tagName.toLowerCase() === \"a\") {\n      target.setAttribute(\"href\", href);\n      target.removeAttribute(\"rel\");\n      return;\n    }\n    event.preventDefault();\n    window.open(href, \"_blank\");\n  }, true);\n})();\n</script>\n<script id=\"farmbuilder-functional-qa\">\n(function () {\n  function marker() {\n    let node = document.getElementById(\"qa-smoke-result\");\n    if (node) return node;\n    node = document.createElement(\"div\");\n    node.id = \"qa-smoke-result\";\n    node.hidden = true;\n    document.body.appendChild(node);\n    return node;\n  }\n\n  let qaFinished = false;\n  let qaWatchdog = null;\n\n  function normalize(text) {\n    return String(text || \"\").replace(/\\s+/g, \" \").trim();\n  }\n\n  function findForm() {\n    return document.getElementById(\"tool-form\") || document.querySelector(\"form\");\n  }\n\n  function findResult() {\n    return (\n      document.getElementById(\"tool-result\") ||\n      document.querySelector(\"[data-result]\") ||\n      document.querySelector(\".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis\")\n    );\n  }\n\n  function primaryAction(form) {\n    if (!form) return null;\n    return (\n      document.getElementById(\"tool-submit\") ||\n      form.querySelector(\"#tool-submit\") ||\n      form.querySelector(\"[data-primary-action]\") ||\n      form.querySelector(\"button[type=submit]\") ||\n      form.querySelector(\"button\") ||\n      form.querySelector(\"input[type=submit]\")\n    );\n  }\n\n  function resultSignature(node) {\n    if (!node) return \"\";\n    const text = normalize(node.textContent);\n    const html = normalize(node.innerHTML).slice(0, 600);\n    return `${text}||${html}`;\n  }\n\n  function resultHeadline(node) {\n    if (!node) return \"\";\n    const heading = node.querySelector(\"h1, h2, h3, strong, b\");\n    return normalize(heading ? heading.textContent : \"\");\n  }\n\n  function sampleText(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"} ${field.placeholder || \"\"}`.toLowerCase();\n    if (/email/.test(key)) return \"bonjour@example.com\";\n    if (/url|site|website|lien/.test(key)) return \"https://example.com/offre-solaire\";\n    if (/phone|tel|mobile/.test(key)) return \"0612345678\";\n    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return \"Paris\";\n    if (/orientation/.test(key)) return \"sud\";\n    if (/keyword|theme|topic|sujet|subject/.test(key)) return \"energie solaire domestique\";\n    if (/titre|title/.test(key)) return \"Simulateur solaire maison\";\n    if (/nom|name|project/.test(key)) return \"Projet Horizon\";\n    if (/description|notes|content|message/.test(key)) return \"Maison individuelle exposee sud avec toiture exploitable.\";\n    return field.placeholder || \"France\";\n  }\n\n  function sampleNumber(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"}`.toLowerCase();\n    if (/inclinaison|angle|slope/.test(key)) return \"30\";\n    if (/surface|size|m2|sqm/.test(key)) return \"28\";\n    if (/annee|year/.test(key)) return \"2024\";\n    if (/prix|price|budget|cost|amount|montant/.test(key)) return \"12000\";\n    const min = Number(field.min || \"\");\n    const max = Number(field.max || \"\");\n    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {\n      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));\n    }\n    if (Number.isFinite(min)) return String(Math.max(min, 12));\n    if (Number.isFinite(max)) return String(Math.min(max, 12));\n    return field.value || \"12\";\n  }\n\n  function applySample(field) {\n    const tag = (field.tagName || \"\").toLowerCase();\n    const type = (field.type || \"\").toLowerCase();\n    if (field.disabled) return;\n    if (type === \"hidden\" || type === \"submit\" || type === \"button\" || type === \"reset\" || type === \"image\" || type === \"file\") {\n      return;\n    }\n    const currentValue = normalize(field.value);\n    if (tag === \"select\") {\n      if (currentValue) return;\n      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];\n      if (option) field.value = option.value;\n      return;\n    }\n    if (type === \"checkbox\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"radio\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"date\") {\n      if (currentValue) return;\n      field.value = \"2026-03-01\";\n      return;\n    }\n    if (type === \"email\") {\n      if (currentValue) return;\n      field.value = \"bonjour@example.com\";\n      return;\n    }\n    if (type === \"url\") {\n      if (currentValue) return;\n      field.value = \"https://example.com/offre-solaire\";\n      return;\n    }\n    if (type === \"tel\") {\n      if (currentValue) return;\n      field.value = \"0612345678\";\n      return;\n    }\n    if (type === \"color\") {\n      if (currentValue) return;\n      field.value = \"#2f855a\";\n      return;\n    }\n    if (type === \"number\" || type === \"range\") {\n      if (currentValue) return;\n      field.value = sampleNumber(field);\n      return;\n    }\n    if (currentValue) return;\n    field.value = sampleText(field);\n  }\n\n  function stamp(status, detail, headline, primary) {\n    if (qaFinished) return;\n    qaFinished = true;\n    if (qaWatchdog) {\n      window.clearTimeout(qaWatchdog);\n      qaWatchdog = null;\n    }\n    const node = marker();\n    node.dataset.status = status;\n    node.dataset.mode = \"native-form\";\n    node.dataset.detail = detail || \"\";\n    node.dataset.headline = headline || \"\";\n    node.dataset.primary = primary || \"\";\n    node.dataset.viewport = window.innerWidth <= 640 ? \"mobile\" : \"desktop\";\n    window.setTimeout(function () {\n      try {\n        window.stop();\n      } catch (_error) {}\n    }, 0);\n  }\n\n  function installModalGuards() {\n    const noop = function () {};\n    const approve = function () { return true; };\n    const empty = function () { return \"\"; };\n    try { window.alert = noop; } catch (_error) {}\n    try { window.confirm = approve; } catch (_error) {}\n    try { window.prompt = empty; } catch (_error) {}\n  }\n\n  function triggerAction(form, action) {\n    try {\n      if (typeof form.requestSubmit === \"function\") {\n        form.requestSubmit(action || undefined);\n        return;\n      }\n    } catch (_error) {}\n    if (action && typeof action.click === \"function\") {\n      action.click();\n      return;\n    }\n    form.dispatchEvent(new Event(\"submit\", { bubbles: true, cancelable: true }));\n  }\n\n  function inspectResult(before, attemptsLeft) {\n    const result = findResult();\n    if (!result) {\n      stamp(\"fail\", \"Result area was not found.\", \"\");\n      return;\n    }\n    const after = resultSignature(result);\n    const text = normalize(result.textContent);\n    if (after && after !== before && text.length >= 24) {\n      const primary = result.querySelector(\"a[href], button[data-href], [data-primary-url]\") || document.querySelector(\"#tool-result a[href]\");\n      stamp(\"pass\", \"Native form submission updated the result area.\", resultHeadline(result), primary ? (primary.getAttribute(\"href\") || primary.getAttribute(\"data-primary-url\") || \"\") : \"\");\n      return;\n    }\n    if (attemptsLeft > 0) {\n      window.setTimeout(function () {\n        inspectResult(before, attemptsLeft - 1);\n      }, 250);\n      return;\n    }\n    stamp(\"fail\", \"Result area did not render usable output.\", resultHeadline(result));\n  }\n\n  function runSmoke() {\n    const params = new URLSearchParams(window.location.search);\n    if (params.get(\"__qa\") !== \"functional\") return;\n    qaWatchdog = window.setTimeout(function () {\n      stamp(\"fail\", \"QA smoke timed out before the page reported a usable result.\", \"\");\n    }, 7000);\n    const form = findForm();\n    if (!form) {\n      stamp(\"fail\", \"Primary tool form was not found.\", \"\");\n      return;\n    }\n    const result = findResult();\n    const before = resultSignature(result);\n    installModalGuards();\n    try {\n      form.querySelectorAll(\"input, select, textarea\").forEach(applySample);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke sample failed: ${error.message}` : \"QA smoke sample failed before submit.\", \"\");\n      return;\n    }\n    const action = primaryAction(form);\n    try {\n      triggerAction(form, action);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke submit failed: ${error.message}` : \"QA smoke submit failed.\", \"\");\n      return;\n    }\n    inspectResult(before, 10);\n  }\n\n  window.addEventListener(\"error\", function (event) {\n    const message = event && event.message ? event.message : \"JavaScript runtime error during QA smoke.\";\n    stamp(\"fail\", `QA smoke JS error: ${message}`, \"\");\n  }, { once: true });\n\n  window.addEventListener(\"unhandledrejection\", function (event) {\n    const reason = event && event.reason;\n    const detail = typeof reason === \"string\"\n      ? reason\n      : reason && reason.message\n        ? reason.message\n        : \"Unhandled promise rejection during QA smoke.\";\n    stamp(\"fail\", `QA smoke rejection: ${detail}`, \"\");\n  }, { once: true });\n\n  if (document.readyState === \"loading\") {\n    document.addEventListener(\"DOMContentLoaded\", function () {\n      window.setTimeout(runSmoke, 60);\n    }, { once: true });\n  } else {\n    window.setTimeout(runSmoke, 60);\n  }\n})();\n</script>\n</body>\n</html>",
+    "generation_mode": "direct_html"
+  }
+}
