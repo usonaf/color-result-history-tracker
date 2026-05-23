@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Resultados por Color y Número | Ingresar Nuevo Resultado</title>
+    <meta name="description" content="Registrá y analizá el historial de resultados de Rojo, Verde, Violeta y números. Herramienta manual para juego responsable en Argentina.">
+    <style>
+        :root {
+            --primary-color: #FF69B4; /* Hot Pink */
+            --secondary-color: #8A2BE2; /* Blue Violet */
+            --accent-color: #32CD32; /* Lime Green */
+            --background-light: #FFF0F5; /* Lavender Blush */
+            --background-dark: #F8F8FF; /* Ghost White */
+            --text-color: #333333;
+            --border-color: #FFC0CB; /* Pink */
+            --red-color: #FF0000;
+            --green-color: #008000;
+            --violet-color: #EE82EE;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            margin: 0 0 0.8rem 0;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .form-group select,
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group select:focus,
+        .form-group input[type="number"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+        }
+
+        #tool-submit {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        #tool-submit:hover {
+            background-color: #28a745; /* Darker green */
+            transform: translateY(-2px);
+        }
+
+        #tool-result {
+            margin-top: 2rem;
+            background-color: var(--background-dark);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 1px dashed var(--secondary-color);
+            min-height: 100px;
+        }
+
+        #tool-result h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        #history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        #history-table th, #history-table td {
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        #history-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        #history-table td.color-cell {
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+        .color-Rojo { background-color: var(--red-color); }
+        .color-Verde { background-color: var(--green-color); }
+        .color-Violeta { background-color: var(--violet-color); }
+
+        .disclaimer {
+            background-color: #fff9e6; /* Light yellow */
+            border-left: 5px solid #ffcc00;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .disclaimer strong {
+            color: #cc9900;
+        }
+
+        #frequencies-chart, #last-results {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #fcfcfc;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        #last-results ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        #last-results ul li {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            min-width: 60px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        }
+
+        .cta-section h2 {
+            color: white;
+            border-bottom: none;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #6A1B9A; /* Darker secondary */
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .seo-section {
+            background-color: var(--background-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            border: 1px solid var(--border-color);
+        }
+
+        .seo-section h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .seo-section ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .seo-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr auto;
+                align-items: end;
+            }
+            #tool-submit {
+                width: auto;
+            }
+        }
+    </style>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://color-result-history-tracker.onrender.com">
+    <meta property="og:title" content="Historial de Resultados por Color y Número">
+    <meta property="og:description" content="Registrá y analizá el historial de resultados de Rojo, Verde, Violeta y números. Herramienta manual para juego responsable en Argentina.">
+    <meta property="og:url" content="https://color-result-history-tracker.onrender.com">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Historial de Resultados por Color y Número", "description": "Registrá y analizá el historial de resultados de Rojo, Verde, Violeta y números. Herramienta manual para juego responsable en Argentina.", "url": "https://color-result-history-tracker.onrender.com", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser"}</script>
+</head>
+<body data-site-slug="color-result-history-tracker" data-runtime-mode="palette_generator">
+    <header>
+        <h1>Tracker Manual de Resultados por Color</h1>
+        <p>Registrá el historial de tus resultados (Rojo, Verde, Violeta y números) para un análisis simple y juego responsable. ¡Sin predicciones, solo datos!</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Ingresar Nuevo Resultado</h2>
+            <form id="tool-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="color-input">Color:</label>
+                        <select id="color-input" required>
+                            <option value="">Seleccione un color</option>
+                            <option value="Rojo">Rojo</option>
+                            <option value="Verde">Verde</option>
+                            <option value="Violeta">Violeta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="number-input">Número (opcional):</label>
+                        <input type="number" id="number-input" min="0" max="9999" placeholder="Ej: 123">
+                    </div>
+                    <button type="submit" id="tool-submit">Agregar Resultado</button>
+                </div>
+            </form>
+
+            <div id="tool-result">
+                <h3 id="result-headline">Tu Historial de Resultados</h3>
+                <div class="disclaimer">
+                    <strong>Importante:</strong> Esta herramienta es para llevar un registro personal. No predice resultados futuros ni garantiza ganancias. El juego debe ser siempre una actividad recreativa y responsable.
+                </div>
+                <table id="history-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Color</th>
+                            <th>Número</th>
+                            <th>Hora de Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Results will be inserted here -->
+                    </tbody>
+                </table>
+                <div id="frequencies-chart">
+                    <h4>Frecuencia de Colores</h4>
+                    <p id="frequency-Rojo">Rojo: 0%</p>
+                    <p id="frequency-Verde">Verde: 0%</p>
+                    <p id="frequency-Violeta">Violeta: 0%</p>
+                </div>
+                <div id="last-results">
+                    <h4>Últimos 10 Resultados</h4>
+                    <ul id="last-results-list">
+                        <!-- Last 10 results will be inserted here -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Gestión Responsable</h2>
+            <p>Monitorear tus patrones puede ayudarte a mantener un juego consciente y saludable. Esta herramienta es un paso hacia un entretenimiento más controlado.</p>
+            <a href="#" class="cta-button" data-affiliate-slot="responsible-gaming-info">Más sobre Juego Responsable</a>
+        </section>
+
+        <section class="seo-section">
+            <h3>¿Buscando herramientas para gestionar tu juego móvil en Argentina?</h3>
+            <p>En Argentina, la creciente popularidad de los juegos móviles requiere de herramientas que promuevan la seguridad y el juego responsable. Nuestro tracker manual de resultados es ideal para quienes buscan:</p>
+            <ul>
+                <li><strong>Controlar su historial de juego:</strong> Registrá de forma sencilla los resultados de colores (Rojo, Verde, Violeta) y números en tus sesiones de juego.</li>
+                <li><strong>Analizar patrones:</strong> Aunque no predice, ver la frecuencia de tus resultados puede ser un indicador útil para tu autoanálisis.</li>
+                <li><strong>Fomentar el juego responsable:</strong> Esta utilidad te ayuda a mantener un registro objetivo de tus actividades, promoviendo una experiencia de juego más consciente y menos impulsiva.</li>
+                <li><strong>Seguridad de cuenta:</strong> Entender tus hábitos es parte fundamental de mantener un entorno de juego seguro y prevenir comportamientos de riesgo.</li>
+            </ul>
+            <p>Nuestra plataforma está diseñada para usuarios en Argentina, ofreciendo una solución práctica y localizada para el seguimiento manual de datos, sin promesas de éxito ni incentivos al juego. Priorizamos tu bienestar y la gestión inteligente de tus tiempos de ocio digital.</p>
+            <p>Considerá siempre límites personales y buscá apoyo si sentís que el juego deja de ser una diversión.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Herramientas para Juego Responsable AR. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:info@example.com">info@example.com</a></p>
+        <p>Aviso Legal | Política de Privacidad</p>
+    </footer>
+
+    <script>
+        const toolForm = document.getElementById('tool-form');
+        const colorInput = document.getElementById('color-input');
+        const numberInput = document.getElementById('number-input');
+        const toolResult = document.getElementById('tool-result');
+        const historyTableBody = document.querySelector('#history-table tbody');
+        const frequencyRojo = document.getElementById('frequency-Rojo');
+        const frequencyVerde = document.getElementById('frequency-Verde');
+        const frequencyVioleta = document.getElementById('frequency-Violeta');
+        const lastResultsList = document.getElementById('last-results-list');
+
+        let resultsHistory = [];
+
+        toolForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            addResult();
+        });
+
+        function addResult() {
+            const color = colorInput.value;
+            const number = numberInput.value ? parseInt(numberInput.value, 10) : null;
+            const timestamp = new Date();
+
+            if (!color) {
+                alert('Por favor, seleccione un color.');
+                return;
+            }
+
+            resultsHistory.push({ color, number, timestamp });
+            updateResultsDisplay();
+
+            // Clear form
+            colorInput.value = '';
+            numberInput.value = '';
+        }
+
+        function updateResultsDisplay() {
+            // Update history table
+            historyTableBody.innerHTML = '';
+            resultsHistory.slice().reverse().forEach((result, index) => { // Reverse to show latest first
+                const row = historyTableBody.insertRow();
+                const displayIndex = resultsHistory.length - index; // Correct index for display
+                row.insertCell().textContent = displayIndex;
+                const colorCell = row.insertCell();
+                colorCell.textContent = result.color;
+                colorCell.classList.add('color-cell', `color-${result.color}`);
+                row.insertCell().textContent = result.number !== null ? result.number : '-';
+                row.insertCell().textContent = result.timestamp.toLocaleString('es-AR');
+            });
+
+            // Update frequencies
+            const total = resultsHistory.length;
+            if (total === 0) {
+                frequencyRojo.textContent = 'Rojo: 0%';
+                frequencyVerde.textContent = 'Verde: 0%';
+                frequencyVioleta.textContent = 'Violeta: 0%';
+            } else {
+                const countRojo = resultsHistory.filter(r => r.color === 'Rojo').length;
+                const countVerde = resultsHistory.filter(r => r.color === 'Verde').length;
+                const countVioleta = resultsHistory.filter(r => r.color === 'Violeta').length;
+
+                frequencyRojo.textContent = `Rojo: ${((countRojo / total) * 100).toFixed(1)}%`;
+                frequencyVerde.textContent = `Verde: ${((countVerde / total) * 100).toFixed(1)}%`;
+                frequencyVioleta.textContent = `Violeta: ${((countVioleta / total) * 100).toFixed(1)}%`;
+            }
+
+            // Update last 10 results
+            lastResultsList.innerHTML = '';
+            resultsHistory.slice(-10).reverse().forEach(result => {
+                const li = document.createElement('li');
+                li.textContent = `${result.color}${result.number !== null ? ' (' + result.number + ')' : ''}`;
+                li.classList.add(`color-${result.color}`);
+                lastResultsList.appendChild(li);
+            });
+        }
+    </script>
+<div id="qa-smoke-result" hidden></div>
+<script id="farmbuilder-affiliate-helper">
+(function () {
+  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};
+  document.addEventListener("click", function (event) {
+    const target = event.target.closest("[data-affiliate-slot]");
+    if (!target) return;
+    const slot = target.getAttribute("data-affiliate-slot");
+    const href = window.__UTILITY_AFFILIATE_MAP[slot];
+    if (!href) return;
+    if (target.tagName && target.tagName.toLowerCase() === "a") {
+      target.setAttribute("href", href);
+      target.removeAttribute("rel");
+      return;
+    }
+    event.preventDefault();
+    window.open(href, "_blank");
+  }, true);
+})();
+</script>
+<script id="farmbuilder-functional-qa">
+(function () {
+  function marker() {
+    let node = document.getElementById("qa-smoke-result");
+    if (node) return node;
+    node = document.createElement("div");
+    node.id = "qa-smoke-result";
+    node.hidden = true;
+    document.body.appendChild(node);
+    return node;
+  }
+
+  let qaFinished = false;
+  let qaWatchdog = null;
+
+  function normalize(text) {
+    return String(text || "").replace(/\s+/g, " ").trim();
+  }
+
+  function findForm() {
+    return document.getElementById("tool-form") || document.querySelector("form");
+  }
+
+  function findResult() {
+    return (
+      document.getElementById("tool-result") ||
+      document.querySelector("[data-result]") ||
+      document.querySelector(".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis")
+    );
+  }
+
+  function primaryAction(form) {
+    if (!form) return null;
+    return (
+      document.getElementById("tool-submit") ||
+      form.querySelector("#tool-submit") ||
+      form.querySelector("[data-primary-action]") ||
+      form.querySelector("button[type=submit]") ||
+      form.querySelector("button") ||
+      form.querySelector("input[type=submit]")
+    );
+  }
+
+  function resultSignature(node) {
+    if (!node) return "";
+    const text = normalize(node.textContent);
+    const html = normalize(node.innerHTML).slice(0, 600);
+    return `${text}||${html}`;
+  }
+
+  function resultHeadline(node) {
+    if (!node) return "";
+    const heading = node.querySelector("h1, h2, h3, strong, b");
+    return normalize(heading ? heading.textContent : "");
+  }
+
+  function sampleText(field) {
+    const key = `${field.id || ""} ${field.name || ""} ${field.placeholder || ""}`.toLowerCase();
+    if (/email/.test(key)) return "bonjour@example.com";
+    if (/url|site|website|lien/.test(key)) return "https://example.com/offre-solaire";
+    if (/phone|tel|mobile/.test(key)) return "0612345678";
+    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return "Paris";
+    if (/orientation/.test(key)) return "sud";
+    if (/keyword|theme|topic|sujet|subject/.test(key)) return "energie solaire domestique";
+    if (/titre|title/.test(key)) return "Simulateur solaire maison";
+    if (/nom|name|project/.test(key)) return "Projet Horizon";
+    if (/description|notes|content|message/.test(key)) return "Maison individuelle exposee sud avec toiture exploitable.";
+    return field.placeholder || "France";
+  }
+
+  function sampleNumber(field) {
+    const key = `${field.id || ""} ${field.name || ""}`.toLowerCase();
+    if (/inclinaison|angle|slope/.test(key)) return "30";
+    if (/surface|size|m2|sqm/.test(key)) return "28";
+    if (/annee|year/.test(key)) return "2024";
+    if (/prix|price|budget|cost|amount|montant/.test(key)) return "12000";
+    const min = Number(field.min || "");
+    const max = Number(field.max || "");
+    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {
+      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));
+    }
+    if (Number.isFinite(min)) return String(Math.max(min, 12));
+    if (Number.isFinite(max)) return String(Math.min(max, 12));
+    return field.value || "12";
+  }
+
+  function applySample(field) {
+    const tag = (field.tagName || "").toLowerCase();
+    const type = (field.type || "").toLowerCase();
+    if (field.disabled) return;
+    if (type === "hidden" || type === "submit" || type === "button" || type === "reset" || type === "image" || type === "file") {
+      return;
+    }
+    const currentValue = normalize(field.value);
+    if (tag === "select") {
+      if (currentValue) return;
+      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];
+      if (option) field.value = option.value;
+      return;
+    }
+    if (type === "checkbox") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "radio") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "date") {
+      if (currentValue) return;
+      field.value = "2026-03-01";
+      return;
+    }
+    if (type === "email") {
+      if (currentValue) return;
+      field.value = "bonjour@example.com";
+      return;
+    }
+    if (type === "url") {
+      if (currentValue) return;
+      field.value = "https://example.com/offre-solaire";
+      return;
+    }
+    if (type === "tel") {
+      if (currentValue) return;
+      field.value = "0612345678";
+      return;
+    }
+    if (type === "color") {
+      if (currentValue) return;
+      field.value = "#2f855a";
+      return;
+    }
+    if (type === "number" || type === "range") {
+      if (currentValue) return;
+      field.value = sampleNumber(field);
+      return;
+    }
+    if (currentValue) return;
+    field.value = sampleText(field);
+  }
+
+  function stamp(status, detail, headline, primary) {
+    if (qaFinished) return;
+    qaFinished = true;
+    if (qaWatchdog) {
+      window.clearTimeout(qaWatchdog);
+      qaWatchdog = null;
+    }
+    const node = marker();
+    node.dataset.status = status;
+    node.dataset.mode = "native-form";
+    node.dataset.detail = detail || "";
+    node.dataset.headline = headline || "";
+    node.dataset.primary = primary || "";
+    node.dataset.viewport = window.innerWidth <= 640 ? "mobile" : "desktop";
+    window.setTimeout(function () {
+      try {
+        window.stop();
+      } catch (_error) {}
+    }, 0);
+  }
+
+  function installModalGuards() {
+    const noop = function () {};
+    const approve = function () { return true; };
+    const empty = function () { return ""; };
+    try { window.alert = noop; } catch (_error) {}
+    try { window.confirm = approve; } catch (_error) {}
+    try { window.prompt = empty; } catch (_error) {}
+  }
+
+  function triggerAction(form, action) {
+    try {
+      if (typeof form.requestSubmit === "function") {
+        form.requestSubmit(action || undefined);
+        return;
+      }
+    } catch (_error) {}
+    if (action && typeof action.click === "function") {
+      action.click();
+      return;
+    }
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+  }
+
+  function inspectResult(before, attemptsLeft) {
+    const result = findResult();
+    if (!result) {
+      stamp("fail", "Result area was not found.", "");
+      return;
+    }
+    const after = resultSignature(result);
+    const text = normalize(result.textContent);
+    if (after && after !== before && text.length >= 24) {
+      const primary = result.querySelector("a[href], button[data-href], [data-primary-url]") || document.querySelector("#tool-result a[href]");
+      stamp("pass", "Native form submission updated the result area.", resultHeadline(result), primary ? (primary.getAttribute("href") || primary.getAttribute("data-primary-url") || "") : "");
+      return;
+    }
+    if (attemptsLeft > 0) {
+      window.setTimeout(function () {
+        inspectResult(before, attemptsLeft - 1);
+      }, 250);
+      return;
+    }
+    stamp("fail", "Result area did not render usable output.", resultHeadline(result));
+  }
+
+  function runSmoke() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("__qa") !== "functional") return;
+    qaWatchdog = window.setTimeout(function () {
+      stamp("fail", "QA smoke timed out before the page reported a usable result.", "");
+    }, 7000);
+    const form = findForm();
+    if (!form) {
+      stamp("fail", "Primary tool form was not found.", "");
+      return;
+    }
+    const result = findResult();
+    const before = resultSignature(result);
+    installModalGuards();
+    try {
+      form.querySelectorAll("input, select, textarea").forEach(applySample);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke sample failed: ${error.message}` : "QA smoke sample failed before submit.", "");
+      return;
+    }
+    const action = primaryAction(form);
+    try {
+      triggerAction(form, action);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke submit failed: ${error.message}` : "QA smoke submit failed.", "");
+      return;
+    }
+    inspectResult(before, 10);
+  }
+
+  window.addEventListener("error", function (event) {
+    const message = event && event.message ? event.message : "JavaScript runtime error during QA smoke.";
+    stamp("fail", `QA smoke JS error: ${message}`, "");
+  }, { once: true });
+
+  window.addEventListener("unhandledrejection", function (event) {
+    const reason = event && event.reason;
+    const detail = typeof reason === "string"
+      ? reason
+      : reason && reason.message
+        ? reason.message
+        : "Unhandled promise rejection during QA smoke.";
+    stamp("fail", `QA smoke rejection: ${detail}`, "");
+  }, { once: true });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setTimeout(runSmoke, 60);
+    }, { once: true });
+  } else {
+    window.setTimeout(runSmoke, 60);
+  }
+})();
+</script>
+</body>
+</html>
